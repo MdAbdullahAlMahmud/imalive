@@ -1,6 +1,6 @@
 [package]
 name = "imalive"
-version = "0.1.0"
+version = "0.2.0"
 description = "Keep your machine awake — cross-platform"
 authors = ["Abdullah"]
 license = "MIT"

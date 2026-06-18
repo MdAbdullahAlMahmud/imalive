@@ -309,11 +309,21 @@ pub fn run() {
             Ok(())
         })
         .on_window_event(|window, event| {
-            // Closing the window hides it to the menu bar instead of quitting.
             if let tauri::WindowEvent::CloseRequested { api, .. } = event {
                 if window.label() == "main" {
-                    api.prevent_close();
-                    let _ = window.hide();
+                    // macOS/Windows have a reliable tray, so closing the window
+                    // hides it there instead of quitting. Many Linux desktops
+                    // (e.g. stock GNOME) show no tray — hiding would make the
+                    // window unreachable, so there we let the close proceed.
+                    #[cfg(not(target_os = "linux"))]
+                    {
+                        api.prevent_close();
+                        let _ = window.hide();
+                    }
+                    #[cfg(target_os = "linux")]
+                    {
+                        let _ = &api;
+                    }
                 }
             }
         })

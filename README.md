@@ -8,29 +8,37 @@ Built with [Tauri](https://tauri.app/) (Rust backend + React/TypeScript frontend
 
 ## Download
 
-**macOS** — grab the latest `.dmg` from the [**Releases page**](https://github.com/MdAbdullahAlMahmud/imalive/releases/latest).
-The build is a **universal binary** that runs natively on both Apple Silicon (M-series) and Intel Macs.
+Grab the latest build for your OS from the [**Releases page**](https://github.com/MdAbdullahAlMahmud/imalive/releases/latest). All builds are **unsigned** open-source binaries, so each OS shows a one-time warning on first launch — the per-platform steps below clear it.
 
-1. Download `ImAlive_<version>_universal.dmg`.
-2. Open the DMG and drag **ImAlive** into your **Applications** folder.
-3. Launch it (see the first-launch note below).
+### 🍎 macOS
 
-> **Windows** and **Linux** builds are planned. For now, build from source — see [Build from source](#build-from-source).
+Download `ImAlive_<version>_universal.dmg` — a **universal binary** that runs natively on Apple Silicon (M-series) **and** Intel Macs. Open the DMG and drag **ImAlive** into **Applications**.
 
-### ⚠️ First launch on macOS (important)
+**First launch (Gatekeeper).** Do **one** of these, **once**:
+- Right-click (Control-click) **ImAlive** in Applications → **Open** → **Open**, **or**
+- Run: `xattr -dr com.apple.quarantine /Applications/ImAlive.app`
 
-ImAlive is **not yet notarized by Apple** (notarization requires a paid Apple Developer account). macOS Gatekeeper will therefore block it on first launch with a *"can't be opened"* or *"damaged"* warning. This is expected for unsigned open-source apps — do **one** of the following, **once**:
+### 🐧 Linux
 
-**Option A — Right-click to open (easiest)**
-1. In **Applications**, right-click (or Control-click) **ImAlive** → **Open**.
-2. Click **Open** again in the dialog. macOS remembers the choice; future launches are normal.
+Two formats are provided:
 
-**Option B — Clear the quarantine flag (Terminal)**
-```bash
-xattr -dr com.apple.quarantine /Applications/ImAlive.app
-```
+- **AppImage** (any distro, no install): download `ImAlive_<version>_amd64.AppImage`, then:
+  ```bash
+  chmod +x ImAlive_*_amd64.AppImage
+  ./ImAlive_*_amd64.AppImage
+  ```
+- **Debian/Ubuntu (.deb)**:
+  ```bash
+  sudo apt install ./ImAlive_<version>_amd64.deb
+  ```
 
-After this one-time step, ImAlive launches like any other app. None of this requires admin/root.
+> **Tray note:** the menu-bar/tray icon needs an AppIndicator host. On stock **GNOME**, install the [AppIndicator extension](https://extensions.gnome.org/extension/615/appindicator-support/) to see it. On Linux, closing the window quits the app (rather than hiding to a tray that may not exist).
+
+### 🪟 Windows
+
+Download and run `ImAlive_<version>_x64-setup.exe` (or the `.msi`). Windows SmartScreen may show *"Windows protected your PC"* — click **More info → Run anyway** (one-time, because the app isn't code-signed).
+
+> Want the warnings gone entirely? That requires paid signing certificates (Apple Developer ID for macOS, an Authenticode cert for Windows). The project ships unsigned for now.
 
 ## Features
 

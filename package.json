@@ -1,7 +1,7 @@
 {
   "name": "imalive",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "description": "Keep your machine awake — a cross-platform desktop app that prevents display and system sleep.",
   "license": "MIT",
