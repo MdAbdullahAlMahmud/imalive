@@ -1,0 +1,62 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ui:dev",
+      "type": "shell",
+      "command": "pnpm",
+      "args": ["dev"],
+      "isBackground": true,
+      "options": {
+        "env": {
+          "NO_COLOR": "1",
+          "FORCE_COLOR": "0"
+        }
+      },
+      "problemMatcher": {
+        "owner": "vite",
+        "pattern": {
+          "regexp": "^$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "VITE",
+          "endsPattern": "Local:"
+        }
+      }
+    },
+    {
+      "label": "rust:build:dev",
+      "type": "shell",
+      "command": "cargo",
+      "args": [
+        "build",
+        "--manifest-path=./src-tauri/Cargo.toml",
+        "--no-default-features"
+      ],
+      "options": {
+        "env": {
+          "PATH": "${env:HOME}/.cargo/bin:${env:PATH}"
+        }
+      },
+      "problemMatcher": ["$rustc"]
+    },
+    {
+      "label": "tauri:dev",
+      "dependsOn": ["ui:dev", "rust:build:dev"],
+      "dependsOrder": "parallel"
+    },
+    {
+      "label": "tauri:build:prod",
+      "type": "shell",
+      "command": "pnpm",
+      "args": ["tauri", "build", "--no-bundle"],
+      "options": {
+        "env": {
+          "PATH": "${env:HOME}/.cargo/bin:${env:PATH}"
+        }
+      },
+      "problemMatcher": ["$rustc"]
+    }
+  ]
+}

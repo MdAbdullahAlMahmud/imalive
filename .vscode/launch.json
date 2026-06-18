@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Tauri: Dev (debug)",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/src-tauri/target/debug/imalive",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "tauri:dev"
+    },
+    {
+      "name": "Tauri: Production",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/src-tauri/target/release/imalive",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "tauri:build:prod"
+    }
+  ]
+}

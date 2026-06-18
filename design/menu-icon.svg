@@ -1,0 +1,8 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Monochrome template glyph for the macOS menu bar.
+       Pure black on transparency; AppKit recolors it for light/dark menu bars. -->
+  <path d="M 36 256 L 180 256 L 224 150 L 268 392 L 304 206 L 336 256 L 476 256"
+        fill="none" stroke="#000000"
+        stroke-width="38" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="476" cy="256" r="22" fill="#000000"/>
+</svg>

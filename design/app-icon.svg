@@ -1,0 +1,31 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4ade80"/>
+      <stop offset="0.55" stop-color="#22c55e"/>
+      <stop offset="1" stop-color="#15803d"/>
+    </linearGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- rounded tile (macOS-style proportions: ~78% of canvas, centered) -->
+  <rect x="112" y="112" width="800" height="800" rx="190" ry="190" fill="url(#bg)"/>
+  <rect x="112" y="112" width="800" height="800" rx="190" ry="190" fill="url(#gloss)"/>
+
+  <!-- soft glow beneath the trace -->
+  <path d="M 190 512 L 410 512 L 470 360 L 516 680 L 556 448 L 600 512 L 834 512"
+        fill="none" stroke="#ffffff" stroke-opacity="0.22"
+        stroke-width="82" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- heartbeat trace -->
+  <path d="M 190 512 L 410 512 L 470 360 L 516 680 L 556 448 L 600 512 L 834 512"
+        fill="none" stroke="#ffffff"
+        stroke-width="46" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- "live" point at the end of the trace -->
+  <circle cx="834" cy="512" r="42" fill="#ffffff" fill-opacity="0.20"/>
+  <circle cx="834" cy="512" r="23" fill="#ffffff"/>
+</svg>
