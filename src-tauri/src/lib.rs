@@ -329,10 +329,13 @@ pub fn run() {
         })
         .build(tauri::generate_context!())
         .expect("error while building tauri application")
-        .run(|app, event| {
+        .run(|_app, _event| {
             // Clicking the Dock icon while the window is hidden reopens it.
-            if let tauri::RunEvent::Reopen { .. } = event {
-                show_main_window(app);
+            // `RunEvent::Reopen` is a macOS-only variant, so this is gated to
+            // macOS — on Linux/Windows the enum has no such variant.
+            #[cfg(target_os = "macos")]
+            if let tauri::RunEvent::Reopen { .. } = _event {
+                show_main_window(_app);
             }
         });
 }
