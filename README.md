@@ -31,6 +31,10 @@ Two formats are provided:
   ```bash
   sudo apt install ./ImAlive_<version>_amd64.deb
   ```
+- **Fedora/RHEL (.rpm)**:
+  ```bash
+  sudo dnf install ./ImAlive-<version>-1.x86_64.rpm
+  ```
 
 > **Tray note:** the menu-bar/tray icon needs an AppIndicator host. On stock **GNOME**, install the [AppIndicator extension](https://extensions.gnome.org/extension/615/appindicator-support/) to see it. On Linux, closing the window quits the app (rather than hiding to a tray that may not exist).
 
